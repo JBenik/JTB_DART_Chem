@@ -27,7 +27,7 @@
 #########################################################################
 #
 # ROOT DIRECTORIES:
-export DART_VER=DART_Chem
+export DART_VER=JTB_DART_Chem
 export PERT_CHEM_VER=ICBC_PERT
 export WORK_DIR=/nobackupp28/jbenik
 export TRUNK_DIR=${WORK_DIR}/TRUNK
@@ -112,7 +112,7 @@ while [[ ${CYCLE_DATE} -le ${CYCLE_END_DATE} ]]; do
 #
 # SELECT COMPONENT RUN OPTIONS:
    if [[ ${DATE} -eq ${CYCLE_STR_DATE} ]]; then
-      export RUN_GEOGRID=false
+      export RUN_GEOGRID=true
       export RUN_UNGRIB=true
       export RUN_METGRID=true
       export RUN_REAL=true
