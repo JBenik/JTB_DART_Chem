@@ -26,12 +26,12 @@
 #########################################################################
 #
 # ROOT DIRECTORIES:
-export DART_VER=DART_development
-export WORK_DIR=/nobackupp11/amizzi
+export DART_VER=DART_Chem
+export WORK_DIR=/nobackupp28/jbenik
 export TRUNK_DIR=${WORK_DIR}/TRUNK
 export REAL_TIME_DIR=${TRUNK_DIR}/${DART_VER}/apm_run_scripts/RUN_REAL_TIME
 export RS_SCRIPTS_DIR=${REAL_TIME_DIR}/FINAL_TEST_SCRIPTS/RS_Scripts
-export INPUT_DATA_DIR=/nobackupp11/amizzi/INPUT_DATA
+export INPUT_DATA_DIR=/nobackupp28/jbenik/INPUT_DATA
 export SCRATCH_DIR=${WORK_DIR}/OUTPUT_DATA
 export EXPERIMENT_DIR=${SCRATCH_DIR}
 export EXPERIMENT_DATA_DIR=${INPUT_DATA_DIR}/FRAPPE_TESTCASE_INPUT_DATA

@@ -239,7 +239,7 @@ EOF
 #
    qsub -Wblock=true job.ksh
    mv index_${JOBRND} index_pert.html
-#
+# JTB: Start my error checking script here. If it failed, then I'll have to resubmit it. 
 # Recenter the perturbed ensemble
    rm jobx.ksh
    touch jobx.ksh

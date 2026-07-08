@@ -256,3 +256,6 @@ apm_run_scripts/RUN_WES_COLDENS/work/*.exe
 
 # Removing index files
 apm_run_scripts/RUN_REAL_TIME/FINAL_TEST_SCRIPTS/index*
+
+
+# Removing any files that are a part of quickbuild
