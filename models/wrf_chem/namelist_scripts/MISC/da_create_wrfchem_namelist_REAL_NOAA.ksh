@@ -48,7 +48,8 @@ auxinput1_inname                    = "met_em.d<domain>.<date>",
 
 auxinput4_inname                    = "wrflowinp_d<domain>",            ! SST data input
 auxinput4_interval                  = 360,  360,
-io_form_auxinput4                   = 2,
+io_form_auxinput2                   = ${NL_IO_FORM_AUXINPUT2},
+io_form_auxinput4                   = ${NL_IO_FORM_AUXINPUT4},
 
 auxinput5_inname                    = ${NL_AUXINPUT5_INNAME},
 frames_per_auxinput5                = ${NL_FRAMES_PER_AUXINPUT5},
@@ -59,7 +60,7 @@ auxinput6_inname                    = ${NL_AUXINPUT6_INNAME},          ! Biogeni
 io_form_auxinput6                   = ${NL_IO_FORM_AUXINPUT6},
 
 auxinput12_inname                   = "wrf_chem_input",                 ! Reading WRF-Chem output from a previous run
-io_form_auxinput12                  = 2,
+io_form_auxinput12                  = ${NL_IO_FORM_AUXINPUT12},
 debug_level                         = 0,
 /
 
@@ -80,9 +81,9 @@ s_vert                              = ${NL_S_VERT},
 e_vert                              = ${NL_E_VERT},
 eta_levels                          = ${NL_ETA_LEVELS:--1},
 
-interp_type                         = 2                                 ! (default) vertical interpolation that is linear in log(pressure)
-extrap_type                         = 2                                 ! (default) vertical extrapolation of non-temperature variables, using the lowest level as constant below ground
-t_extrap_type                       = 2                                 ! vertical extrapolation for potential temp: (default) -6.5 K/km lapse rate for temperature
+interp_type                         = ${NL_INTERP_TYPE}                 ! (default) vertical interpolation that is linear in log(pressure)
+extrap_type                         = ${NL_EXTRAP_TYPE}                 ! (default) vertical extrapolation of non-temperature variables, using the lowest level as constant below ground
+t_extrap_type                       = ${NL_T_EXTRAP_TYPE}               ! vertical extrapolation for potential temp: (default) -6.5 K/km lapse rate for temperature
 lagrange_order                      = 2                                 ! (default) quadratic vertical interpolation order
 
 lowest_lev_from_sfc                 = .false.                           ! (default) use traditional interpolation
@@ -98,12 +99,12 @@ use_surface                         = .true.                            ! (defau
 dx                                  = ${NL_DX},
 dy                                  = ${NL_DY},
 
-grid_id                             = 1,
-parent_id                           = 0,
-i_parent_start                      = 1,
-j_parent_start                      = 1,
-parent_grid_ratio                   = 1,
-parent_time_step_ratio              = 1,
+grid_id                             = ${NL_GRID_ID},
+parent_id                           = ${NL_PARENT_ID},
+i_parent_start                      = ${NL_I_PARENT_START},
+j_parent_start                      = ${NL_J_PARENT_START},
+parent_grid_ratio                   = ${NL_PARENT_GRID_RATIO},
+parent_time_step_ratio              = ${NL_PARENT_TIME_STEP_RATIO},
 
 vert_refine_method                  = 0,
 vert_refine_fact                    = 1,
@@ -154,7 +155,7 @@ rdlai2d                             = .true.                            ! When s
 sf_sfclay_physics                   = ${NL_SF_SFCLAY_PHYSICS},                                ! surface layer option
 bl_pbl_physics                      = ${NL_BL_PBL_PHYSICS},                                ! boundary layer option, MYNN 2.5 level TKE
 bl_mynn_tkeadvect                   = .false.,                          ! (default) off; does not advect tke in MYNN scheme (default)
-bl_mynn_tkebudget                   = 0,                                ! 1- adds MYNN tke budget terms to output
+tke_budget                          = 0,                                ! 1- adds MYNN tke budget terms to output
 bl_mynn_cloudpdf                    = 2,
 bl_mynn_edmf                        = 0,
 bl_mynn_edmf_mom                    = 0,
@@ -170,7 +171,7 @@ cu_physics                          = ${NL_CU_PHYSICS},                         
 cudt                                = ${NL_CUDT},
 cu_rad_feedback                     = .true.,                           ! sub-grid cloud effect to the optical depth in radiation currently it works only for GF, G3, GD, and KF schemes; also need to set cu_diag = 1 for GF, G3, and GD schemes (default is .false. =off)
 cu_diag                             = 1,                                ! Additional time-averaged diagnostics from cu_physics (use only with cu_physics=3,5,and 93)
-ishallow                            = 1,                                ! shallow convection used with cu_physics=3 or 5 (default is 0 = off)
+ishallow                            = ${NL_ISHALLOW},                                ! shallow convection used with cu_physics=3 or 5 (default is 0 = off)
 prec_acc_dt                         = 60.,                              ! bucket reset time interval between outputs for cumulus or grid-scale precipitation (in minutes)
 
 shcu_physics                        = 0,                                ! independent shallow cumulus option (not tied to deep convection);

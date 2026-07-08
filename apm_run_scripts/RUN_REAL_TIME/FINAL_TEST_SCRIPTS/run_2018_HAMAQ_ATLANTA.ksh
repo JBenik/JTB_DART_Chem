@@ -27,9 +27,9 @@
 #########################################################################
 #
 # ROOT DIRECTORIES:
-export DART_VER=DART_development
+export DART_VER=DART_Chem
 export PERT_CHEM_VER=ICBC_PERT
-export WORK_DIR=/nobackupp28/amizzi
+export WORK_DIR=/nobackupp28/jbenik
 export TRUNK_DIR=${WORK_DIR}/TRUNK
 export REAL_TIME_DIR=${TRUNK_DIR}/${DART_VER}/apm_run_scripts/RUN_REAL_TIME
 export RS_SCRIPTS_DIR=${REAL_TIME_DIR}/FINAL_TEST_SCRIPTS/RS_Scripts
@@ -113,9 +113,9 @@ while [[ ${CYCLE_DATE} -le ${CYCLE_END_DATE} ]]; do
 # SELECT COMPONENT RUN OPTIONS:
    if [[ ${DATE} -eq ${CYCLE_STR_DATE} ]]; then
       export RUN_GEOGRID=false
-      export RUN_UNGRIB=false
-      export RUN_METGRID=false
-      export RUN_REAL=false
+      export RUN_UNGRIB=true
+      export RUN_METGRID=true
+      export RUN_REAL=true
       export RUN_PERT_WRFCHEM_MET_IC=false
       export RUN_PERT_WRFCHEM_MET_BC=false
       export RUN_WRFCHEM_BIO=false
@@ -124,7 +124,7 @@ while [[ ${CYCLE_DATE} -le ${CYCLE_END_DATE} ]]; do
       export RUN_PERT_WRFCHEM_CHEM_ICBC=false
       export RUN_PERT_WRFCHEM_CHEM_EMISS=false
       export RUN_COMBINE_OBS=false
-      export RUN_PREPROCESS_OBS=true
+      export RUN_PREPROCESS_OBS=false
       export RUN_CREATE_NOAA_DIR=false
 #
       export RUN_MOPITT_V8_CO_PROFILE_OBS=false           # (done)  TRACER I

@@ -171,7 +171,7 @@
    export NL_PARENT_ID=0,1
    export NL_I_PARENT_START=${ISTR_CR},${ISTR_FR}
    export NL_J_PARENT_START=${JSTR_CR},${JSTR_FR}
-   export NL_PARENT_GRID_RATIO=1,3
+   export NL_PARENT_GRID_RATIO=1,2
    export NL_PARENT_TIME_STEP_RATIO=1,2
    export NL_FEEDBACK=0
    export NL_SMOOTH_OPTION=0

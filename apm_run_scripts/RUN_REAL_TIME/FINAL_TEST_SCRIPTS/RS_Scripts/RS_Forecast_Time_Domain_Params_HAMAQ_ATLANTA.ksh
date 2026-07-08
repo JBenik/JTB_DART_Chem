@@ -3,14 +3,14 @@
 # FORECAST PARAMETERS:
    export USE_DART_INFL=true
    (( CYCLE_PERIOD_SEC=${CYCLE_PERIOD}*60*60 ))
-   export MAX_DOMAINS=01
+   export MAX_DOMAINS=02
    export CR_DOMAIN=01
    export FR_DOMAIN=02
-   export NNXP_CR=400
-   export NNYP_CR=300
+   export NNXP_CR=399
+   export NNYP_CR=399
    export NNZP_CR=50
-   export NNXP_FR=400
-   export NNYP_FR=400
+   export NNXP_FR=100
+   export NNYP_FR=100
    export NNZP_FR=50
    (( NNXP_STAG_CR=${NNXP_CR}+1 ))
    (( NNYP_STAG_CR=${NNYP_CR}+1 ))
@@ -33,9 +33,9 @@
    export NFIRECHEMI_EMISS=19
    export NBIOCHEMI_EMISS=1
    export ISTR_CR=1
+   export ISTR_FR=176
    export JSTR_CR=1
-   export ISTR_FR=51
-   export JSTR_FR=21
+   export JSTR_FR=176
    export DX_CR=6000
    export DX_FR=3000
    (( LBC_END=2*${FCST_PERIOD} ))

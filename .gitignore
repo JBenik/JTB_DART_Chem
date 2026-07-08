@@ -244,3 +244,15 @@ test_parse_variables
 !system_simulation/
 !wakeup_filter/
 
+# Removing the executables
+apm_run_scripts/RUN_FINN_FIRE/work/*.exe
+apm_run_scripts/RUN_PERT_CHEM/EMISS_PERT/work/*.exe
+apm_run_scripts/RUN_PERT_CHEM/ICBC_PERT/work/*.exe
+apm_run_scripts/RUN_BIAS_CORR/work/*.exe
+apm_run_scripts/RUN_EMISS_INV/work/*.exe
+apm_run_scripts/RUN_MEGAN_BIO/work/*.exe
+apm_run_scripts/RUN_TIME_INTERP/work/*.exe
+apm_run_scripts/RUN_WES_COLDENS/work/*.exe
+
+# Removing index files
+apm_run_scripts/RUN_REAL_TIME/FINAL_TEST_SCRIPTS/index*

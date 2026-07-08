@@ -1,13 +1,14 @@
 #!/bin/ksh -aux
       cd ${RUN_DIR}/${DATE}/wrfchem_fire
 #
+MAX_DOMAINS_NO_PADDING=${MAX_DOMAINS##+(0)}
 # LINK NEEDED FILES
       export FILE_CR=wrfinput_d${CR_DOMAIN}
-#      export FILE_FR=wrfinput_d${FR_DOMAIN}
+      export FILE_FR=wrfinput_d${FR_DOMAIN}
       rm -rf ${FILE_CR}
-#      rm -rf ${FILE_FR}
+      rm -rf ${FILE_FR}
       ln -sf ${REAL_DIR}/${FILE_CR}_${FILE_DATE} ${FILE_CR}   
-#      ln -sf ${REAL_DIR}/${FILE_FR}_${FILE_DATE} ${FILE_FR}   
+      ln -sf ${REAL_DIR}/${FILE_FR}_${FILE_DATE} ${FILE_FR}   
       rm -rf GLOBAL_FINNv25_*.txt
       cp ${EXPERIMENT_WRFFIRECHEMI_DIR}/${YYYY}/${NL_FIRE_FILE} ./.
       export FILE=fire_emis
@@ -24,7 +25,7 @@
       rm -rf ${FILE_nml}
       cat << EOF > ${FILE_nml}
 &control
-domains = ${MAX_DOMAINS},
+domains = ${MAX_DOMAINS_NO_PADDING},
 fire_filename(1) = '${NL_FIRE_FILE}',
 start_date = '${FIRE_START_DATE}', 
 end_date = '${FIRE_END_DATE}',
@@ -62,7 +63,7 @@ EOF
 # TEST WHETHER OUTPUT EXISTS
          export FILE_CR=wrffirechemi_d${CR_DOMAIN}_${L_FILE_DATE}
          export FILE_FR=wrffirechemi_d${FR_DOMAIN}_${L_FILE_DATE}
-         if [[ ! -e ${FILE_CR} || (${MAX_DOMAINS} -eq 2 && ! -e ${FILE_FR}) ]]; then
+         if [[ ! -e ${FILE_CR} || (${MAX_DOMAINS_NO_PADDING} -eq 2 && ! -e ${FILE_FR}) ]]; then
             echo WRFFIRE FAILED
             exit
          else
