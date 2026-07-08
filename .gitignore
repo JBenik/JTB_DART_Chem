@@ -283,6 +283,8 @@ observations/obs_converters/ATMOS_CHEM/CRIS_PAN/*
 observations/obs_converters/ATMOS_CHEM/GOME2A_NO2/*
 !observations/obs_converters/ATMOS_CHEM/GOME2A_NO2/quickbuild.sh
 observations/obs_converters/ATMOS_CHEM/GOME2B_NO2/*
+observations/obs_converters/ATMOS_CHEM/GOME2B_NO2/work/gome2b_no2_trop_col_ascii_to_obs
+observations/obs_converters/ATMOS_CHEM/GOME2B_NO2/work/gome2b_no2_trop_col_thinner
 !observations/obs_converters/ATMOS_CHEM/GOME2B_NO2/quickbuild.sh
 
 # IASI
