@@ -259,3 +259,100 @@ apm_run_scripts/RUN_REAL_TIME/FINAL_TEST_SCRIPTS/index*
 
 
 # Removing any files that are a part of quickbuild
+# AIRNOW
+observations/obs_converters/ATMOS_CHEM/AIRNOW/*
+!observations/obs_converters/ATMOS_CHEM/AIRNOW/quickbuild.sh
+
+# AQSMEX
+observations/obs_converters/ATMOS_CHEM/AQSMEX/*
+!observations/obs_converters/ATMOS_CHEM/AQSMEX/quickbuild.sh
+
+# CRIS
+observations/obs_converters/ATMOS_CHEM/CRIS_CH4/*
+!observations/obs_converters/ATMOS_CHEM/CRIS_CH4/quickbuild.sh
+observations/obs_converters/ATMOS_CHEM/CRIS_CO/*
+!observations/obs_converters/ATMOS_CHEM/CRIS_CO/quickbuild.sh
+observations/obs_converters/ATMOS_CHEM/CRIS_NH3/*
+!observations/obs_converters/ATMOS_CHEM/CRIS_NH3/quickbuild.sh
+observations/obs_converters/ATMOS_CHEM/CRIS_O3/*
+!observations/obs_converters/ATMOS_CHEM/CRIS_O3/quickbuild.sh
+observations/obs_converters/ATMOS_CHEM/CRIS_PAN/*
+!observations/obs_converters/ATMOS_CHEM/CRIS_PAN/quickbuild.sh
+
+# GOME2
+observations/obs_converters/ATMOS_CHEM/GOME2A_NO2/*
+!observations/obs_converters/ATMOS_CHEM/GOME2A_NO2/quickbuild.sh
+observations/obs_converters/ATMOS_CHEM/GOME2B_NO2/*
+!observations/obs_converters/ATMOS_CHEM/GOME2B_NO2/quickbuild.sh
+
+# IASI
+observations/obs_converters/ATMOS_CHEM/IASI_CO/*
+!observations/obs_converters/ATMOS_CHEM/IASI_CO/quickbuild.sh
+observations/obs_converters/ATMOS_CHEM/IASI_O3/*
+!observations/obs_converters/ATMOS_CHEM/IASI_O3/quickbuild.sh
+
+# MAXDOAS & MEXICO
+observations/obs_converters/ATMOS_CHEM/MAXDOAS_NO2/*
+!observations/obs_converters/ATMOS_CHEM/MAXDOAS_NO2/quickbuild.sh
+observations/obs_converters/ATMOS_CHEM/MEXICO_AQS/*
+!observations/obs_converters/ATMOS_CHEM/MEXICO_AQS/quickbuild.sh
+
+# MLS
+observations/obs_converters/ATMOS_CHEM/MLS_HNO3/*
+!observations/obs_converters/ATMOS_CHEM/MLS_HNO3/quickbuild.sh
+observations/obs_converters/ATMOS_CHEM/MLS_O3/*
+!observations/obs_converters/ATMOS_CHEM/MLS_O3/quickbuild.sh
+
+# MODIS & MOPITT
+observations/obs_converters/ATMOS_CHEM/MODIS_AOD/*
+!observations/obs_converters/ATMOS_CHEM/MODIS_AOD/quickbuild.sh
+observations/obs_converters/ATMOS_CHEM/MOPITT_CO/*
+!observations/obs_converters/ATMOS_CHEM/MOPITT_CO/quickbuild.sh
+
+# OMI
+observations/obs_converters/ATMOS_CHEM/OMI_HCHO/*
+!observations/obs_converters/ATMOS_CHEM/OMI_HCHO/quickbuild.sh
+observations/obs_converters/ATMOS_CHEM/OMI_NO2/*
+!observations/obs_converters/ATMOS_CHEM/OMI_NO2/quickbuild.sh
+observations/obs_converters/ATMOS_CHEM/OMI_O3/*
+!observations/obs_converters/ATMOS_CHEM/OMI_O3/quickbuild.sh
+observations/obs_converters/ATMOS_CHEM/OMI_SO2/*
+!observations/obs_converters/ATMOS_CHEM/OMI_SO2/quickbuild.sh
+
+# PANDA & SCIAM
+observations/obs_converters/ATMOS_CHEM/PANDA/*
+!observations/obs_converters/ATMOS_CHEM/PANDA/quickbuild.sh
+observations/obs_converters/ATMOS_CHEM/SCIAM_NO2/*
+!observations/obs_converters/ATMOS_CHEM/SCIAM_NO2/quickbuild.sh
+
+# TEMPO
+observations/obs_converters/ATMOS_CHEM/TEMPO_NO2/*
+!observations/obs_converters/ATMOS_CHEM/TEMPO_NO2/quickbuild.sh
+observations/obs_converters/ATMOS_CHEM/TEMPO_O3/*
+!observations/obs_converters/ATMOS_CHEM/TEMPO_O3/quickbuild.sh
+
+# TES
+observations/obs_converters/ATMOS_CHEM/TES_CH4/*
+!observations/obs_converters/ATMOS_CHEM/TES_CH4/quickbuild.sh
+observations/obs_converters/ATMOS_CHEM/TES_CO/*
+!observations/obs_converters/ATMOS_CHEM/TES_CO/quickbuild.sh
+observations/obs_converters/ATMOS_CHEM/TES_CO2/*
+!observations/obs_converters/ATMOS_CHEM/TES_CO2/quickbuild.sh
+observations/obs_converters/ATMOS_CHEM/TES_NH3/*
+!observations/obs_converters/ATMOS_CHEM/TES_NH3/quickbuild.sh
+observations/obs_converters/ATMOS_CHEM/TES_O3/*
+!observations/obs_converters/ATMOS_CHEM/TES_O3/quickbuild.sh
+
+# TROPOMI
+observations/obs_converters/ATMOS_CHEM/TROPOMI_CH4/*
+!observations/obs_converters/ATMOS_CHEM/TROPOMI_CH4/quickbuild.sh
+observations/obs_converters/ATMOS_CHEM/TROPOMI_CO/*
+!observations/obs_converters/ATMOS_CHEM/TROPOMI_CO/quickbuild.sh
+observations/obs_converters/ATMOS_CHEM/TROPOMI_HCHO/*
+!observations/obs_converters/ATMOS_CHEM/TROPOMI_HCHO/quickbuild.sh
+observations/obs_converters/ATMOS_CHEM/TROPOMI_NO2/*
+!observations/obs_converters/ATMOS_CHEM/TROPOMI_NO2/quickbuild.sh
+observations/obs_converters/ATMOS_CHEM/TROPOMI_O3/*
+!observations/obs_converters/ATMOS_CHEM/TROPOMI_O3/quickbuild.sh
+observations/obs_converters/ATMOS_CHEM/TROPOMI_SO2/*
+!observations/obs_converters/ATMOS_CHEM/TROPOMI_SO2/quickbuild.sh
