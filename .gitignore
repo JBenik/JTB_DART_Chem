@@ -358,3 +358,15 @@ observations/obs_converters/ATMOS_CHEM/TROPOMI_O3/*
 !observations/obs_converters/ATMOS_CHEM/TROPOMI_O3/quickbuild.sh
 observations/obs_converters/ATMOS_CHEM/TROPOMI_SO2/*
 !observations/obs_converters/ATMOS_CHEM/TROPOMI_SO2/quickbuild.sh
+
+# Not including files in models/
+models/wrf_chem/work/add_pert_where_high_refl
+models/wrf_chem/work/convertdate
+models/wrf_chem/work/ensemble_init
+models/wrf_chem/work/extract
+models/wrf_chem/work/grid_refl_obs
+models/wrf_chem/work/pert_wrf_bc
+models/wrf_chem/work/replace_wrf_fields
+models/wrf_chem/work/select
+models/wrf_chem/work/update_wrf_bc
+models/wrf_chem/work/wrf_dart_obs_preprocess
