@@ -112,20 +112,20 @@ while [[ ${CYCLE_DATE} -le ${CYCLE_END_DATE} ]]; do
 #
 # SELECT COMPONENT RUN OPTIONS:
    if [[ ${DATE} -eq ${CYCLE_STR_DATE} ]]; then
-      export RUN_GEOGRID=true
-      export RUN_UNGRIB=true
-      export RUN_METGRID=true
-      export RUN_REAL=true
+      export RUN_GEOGRID=false
+      export RUN_UNGRIB=false
+      export RUN_METGRID=false
+      export RUN_REAL=false
       export RUN_PERT_WRFCHEM_MET_IC=false
       export RUN_PERT_WRFCHEM_MET_BC=false
       export RUN_WRFCHEM_BIO=false
-      export RUN_WRFCHEM_FIRE=false
-      export RUN_WRFCHEM_CHEMI=false
-      export RUN_PERT_WRFCHEM_CHEM_ICBC=false
-      export RUN_PERT_WRFCHEM_CHEM_EMISS=false
-      export RUN_COMBINE_OBS=false
-      export RUN_PREPROCESS_OBS=false
-      export RUN_CREATE_NOAA_DIR=false
+      export RUN_WRFCHEM_FIRE=true
+      export RUN_WRFCHEM_CHEMI=true
+      export RUN_PERT_WRFCHEM_CHEM_ICBC=true
+      export RUN_PERT_WRFCHEM_CHEM_EMISS=true
+      export RUN_COMBINE_OBS=true
+      export RUN_PREPROCESS_OBS=true
+      export RUN_CREATE_NOAA_DIR=true
 #
       export RUN_MOPITT_V8_CO_PROFILE_OBS=false           # (done)  TRACER I
       export RUN_MOPITT_V9_CO_PROFILE_OBS=false            # (done)  TRACER I
@@ -138,11 +138,11 @@ while [[ ${CYCLE_DATE} -le ${CYCLE_END_DATE} ]]; do
       export RUN_TES_O3_PROFILE_OBS=false                  # (done)  TRACER I
       export RUN_MLS_O3_PROFILE_OBS=false                  # (done)  TRACER I
       export RUN_MLS_HNO3_PROFILE_OBS=false                # (done)  TRACER I
-      export RUN_AIRNOW_CO_OBS=false                       # (done)  TRACER I
-      export RUN_AIRNOW_O3_OBS=false                       # (done)  TRACER I
-      export RUN_AIRNOW_NO2_OBS=false                      # (done)  TRACER I
-      export RUN_AIRNOW_SO2_OBS=false                      # (done)  TRACER I
-      export RUN_MET_OBS=false                             # (done)  TRACER I
+      export RUN_AIRNOW_CO_OBS=true                       # (done)  TRACER I
+      export RUN_AIRNOW_O3_OBS=true                       # (done)  TRACER I
+      export RUN_AIRNOW_NO2_OBS=true                      # (done)  TRACER I
+      export RUN_AIRNOW_SO2_OBS=true                      # (done)  TRACER I
+      export RUN_MET_OBS=true                             # (done)  TRACER I
    elif [[ ${DATE} -gt ${CYCLE_STR_DATE} ]]; then
       export RUN_GEOGRID=false
       export RUN_UNGRIB=true
