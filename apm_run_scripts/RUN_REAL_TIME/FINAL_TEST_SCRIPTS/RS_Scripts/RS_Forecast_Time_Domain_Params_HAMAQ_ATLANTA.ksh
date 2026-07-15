@@ -3,9 +3,11 @@
 # FORECAST PARAMETERS:
    export USE_DART_INFL=true
    (( CYCLE_PERIOD_SEC=${CYCLE_PERIOD}*60*60 ))
-   export MAX_DOMAINS=02
+   export MAX_DOMAINS=01
    export CR_DOMAIN=01
-   export FR_DOMAIN=02
+   if [[ ${MAX_DOMAINS} -eq 02 ]]; then
+   	export FR_DOMAIN=02
+   fi
    export NNXP_CR=399
    export NNYP_CR=399
    export NNZP_CR=50

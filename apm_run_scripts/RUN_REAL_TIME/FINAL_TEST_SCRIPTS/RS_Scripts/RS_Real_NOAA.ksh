@@ -18,7 +18,7 @@
          export P_FILE_DATE=${P_YYYY}-${P_MM}-${P_DD}_${P_HH}:${P_MN}:00.nc
          ln -sf ${RUN_DIR}/${DATE}/metgrid/met_em.d${CR_DOMAIN}.${P_FILE_DATE} ./.
 	 
-	 if [ -n "${FR_DOMAIN}" ]; then
+	 if [ -n "${FR_DOMAIN+x}" ]; then
          	ln -sf ${RUN_DIR}/${DATE}/metgrid/met_em.d${FR_DOMAIN}.${P_FILE_DATE} ./.
 	 fi
          export P_DATE=$(${BUILD_DIR}/da_advance_time.exe ${P_DATE} ${LBC_FREQ_TEXT} -f ccyymmddhhnn 2>/dev/null) 

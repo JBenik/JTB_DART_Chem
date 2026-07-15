@@ -26,9 +26,9 @@
 #########################################################################
 #
 # ROOT DIRECTORIES:
-export DART_VER=DART_development
+export DART_VER=JTB_DART_Chem
 export PERT_CHEM_VER=ICBC_PERT
-export WORK_DIR=/nobackupp28/amizzi
+export WORK_DIR=/nobackupp28/jbenik
 export TRUNK_DIR=${WORK_DIR}/TRUNK
 export REAL_TIME_DIR=${TRUNK_DIR}/${DART_VER}/apm_run_scripts/RUN_REAL_TIME
 export RS_SCRIPTS_DIR=${REAL_TIME_DIR}/FINAL_TEST_SCRIPTS/RS_Scripts
@@ -44,7 +44,7 @@ export EXPERIMENT_INPUT_OBS=NOAA
 export NL_CORRECTION_FILENAME='Historical_Bias_Corrections'
 
 export WRFCHEM_TEMPLATE_FILE=wrfinput_d01_2019-04-02_03:00:00.e001
-export NUM_MEMBERS=30
+export NUM_MEMBERS=5
 export CYCLE_PERIOD=3
 export FCST_PERIOD=3
 #
@@ -58,7 +58,7 @@ export FIRST_EMISS_INV_DATE=2018040203
 export CYCLE_STR_DATE=2018040200
 #
 # END CYCLE DATE-TIME:
-export CYCLE_END_DATE=2018040300
+export CYCLE_END_DATE=2018040203
 #
 # For emissions estimation
 export ADD_EMISS=true
@@ -322,9 +322,9 @@ while [[ ${CYCLE_DATE} -le ${CYCLE_END_DATE} ]]; do
 #
 # NOAAS  
    rm -rf index_RS_Forecast_Time_Domain_Params_NOAA_${DATE}
-   source ${RS_SCRIPTS_DIR}/RS_Forecast_Time_Domain_Params_NOAA.ksh > index_RS_Forecast_Time_Domain_Params_NOAA_${DATE} 2>&1
+   source ${RS_SCRIPTS_DIR}/RS_Forecast_Time_Domain_Params_HAMAQ_ATLANTA.ksh > index_RS_Forecast_Time_Domain_Params_HAMAQ_ATLANTA_${DATE} 2>&1
    rm -rf index_RS_WRFChem_Namelists_NOAA_${DATE}
-   source ${RS_SCRIPTS_DIR}/RS_WRFChem_Namelists_NOAA.ksh > index_RS_WRFChem_Namelists_NOAA_${DATE} 2>&1
+   source ${RS_SCRIPTS_DIR}/RS_WRFChem_Namelists_HAMAQ_ATLANTA.ksh > index_RS_WRFChem_Namelists_HAMAQ_ATLANTA_${DATE} 2>&1
 #
    rm -rf index_RS_Forward_Operator_Params_${DATE}
    source ${RS_SCRIPTS_DIR}/RS_Forward_Operator_Params.ksh > index_RS_Forward_Operator_Params_${DATE} 2>&1
@@ -359,8 +359,8 @@ while [[ ${CYCLE_DATE} -le ${CYCLE_END_DATE} ]]; do
    export NL_DAMPCOEF=0.2,0.2
    export NL_DAMP_OPT=3
    export NL_SMOOTH_OPTION=0
-   export NL_TIME_STEP=40
-   export NNL_TIME_STEP=40
+   export NL_TIME_STEP=10
+   export NNL_TIME_STEP=10
    export NL_TIME_STEP_SOUND=4
 #
    export GENERAL_JOB_CLASS=normal

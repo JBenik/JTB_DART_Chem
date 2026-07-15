@@ -4,11 +4,13 @@
 MAX_DOMAINS_NO_PADDING=${MAX_DOMAINS##+(0)}
 # LINK NEEDED FILES
       export FILE_CR=wrfinput_d${CR_DOMAIN}
-      export FILE_FR=wrfinput_d${FR_DOMAIN}
       rm -rf ${FILE_CR}
-      rm -rf ${FILE_FR}
       ln -sf ${REAL_DIR}/${FILE_CR}_${FILE_DATE} ${FILE_CR}   
-      ln -sf ${REAL_DIR}/${FILE_FR}_${FILE_DATE} ${FILE_FR}   
+      if [[ ${MAX_DOMAINS_NO_PADDING} != 1 ]]; then
+      	export FILE_FR=wrfinput_d${FR_DOMAIN}
+      	rm -rf ${FILE_FR}
+      	ln -sf ${REAL_DIR}/${FILE_FR}_${FILE_DATE} ${FILE_FR}   
+      fi
       rm -rf GLOBAL_FINNv25_*.txt
       cp ${EXPERIMENT_WRFFIRECHEMI_DIR}/${YYYY}/${NL_FIRE_FILE} ./.
       export FILE=fire_emis
@@ -62,13 +64,22 @@ EOF
 #
 # TEST WHETHER OUTPUT EXISTS
          export FILE_CR=wrffirechemi_d${CR_DOMAIN}_${L_FILE_DATE}
-         export FILE_FR=wrffirechemi_d${FR_DOMAIN}_${L_FILE_DATE}
-         if [[ ! -e ${FILE_CR} || (${MAX_DOMAINS_NO_PADDING} -eq 2 && ! -e ${FILE_FR}) ]]; then
-            echo WRFFIRE FAILED
-            exit
-         else
-            echo WRFFIRE SUCCESS
-         fi
+      	 if [[ ${MAX_DOMAINS_NO_PADDING} != 1 ]]; then
+         	 export FILE_FR=wrffirechemi_d${FR_DOMAIN}_${L_FILE_DATE}
+		 if [[ ! -e ${FILE_CR} || (${MAX_DOMAINS_NO_PADDING} -eq 2 && ! -e ${FILE_FR}) ]]; then
+		    echo WRFFIRE FAILED
+		    exit
+		 else
+		    echo WRFFIRE SUCCESS
+		 fi
+	 else
+		 if [[ ! -e ${FILE_CR} ]]; then
+		    echo WRFFIRE FAILED
+		    exit
+		 else
+		    echo WRFFIRE SUCCESS
+		 fi
+	 fi
          export L_DATE=$(${BUILD_DIR}/da_advance_time.exe ${L_DATE} 1 -f ccyymmddhhnn 2>/dev/null)
       done
 #

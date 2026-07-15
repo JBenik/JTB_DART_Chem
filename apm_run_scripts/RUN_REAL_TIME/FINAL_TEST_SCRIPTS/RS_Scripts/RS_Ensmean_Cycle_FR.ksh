@@ -108,7 +108,7 @@
       export NL_MAX_DOM=2
       export NL_IOFIELDS_FILENAME=\'hist_io_flds_v1\',\'hist_io_flds_v2\'
       export NL_RESTART_INTERVAL=360
-      export NL_TIME_STEP=40
+      export NL_TIME_STEP=${{NL_TIME_STEP}
       export NL_BIOEMDT=1,.5
       export NL_PHOTDT=1,.5
       export NL_CHEMDT=1,.5

@@ -165,15 +165,29 @@ EOF
       done
 #
 # Reset dual resolution cycling parameters      
-      export NL_E_WE=${NNXP_STAG_CR},${NNXP_STAG_FR}
-      export NL_E_SN=${NNYP_STAG_CR},${NNYP_STAG_FR}
-      export NL_DX=${DX_CR},${DX_FR}
-      export NL_DY=${DX_CR},${DX_FR}
-      export NL_GRID_ID=1,2
-      export NL_PARENT_ID=0,1
-      export NL_PARENT_GRID_RATIO=1,5
-      export NL_I_PARENT_START=${ISTR_CR},${ISTR_FR}
-      export NL_J_PARENT_START=${JSTR_CR},${JSTR_FR}
+      if [ -n "${DX_FR+x}" ]; then
+	      export NL_E_WE=${NNXP_STAG_CR},${NNXP_STAG_FR}
+	      export NL_E_SN=${NNYP_STAG_CR},${NNYP_STAG_FR}
+	      export NL_DX=${DX_CR},${DX_FR}
+	      export NL_DY=${DX_CR},${DX_FR}
+	      export NL_GRID_ID=1,2
+	      export NL_PARENT_ID=0,1
+	      export NL_PARENT_GRID_RATIO=1,5
+	      export NL_I_PARENT_START=${ISTR_CR},${ISTR_FR}
+	      export NL_J_PARENT_START=${JSTR_CR},${JSTR_FR}
+      else
+	      export NL_E_WE=${NNXP_STAG_CR}
+	      export NL_E_SN=${NNYP_STAG_CR}
+	      export NL_DX=${DX_CR}
+	      export NL_DY=${DX_CR}
+	      export NL_GRID_ID=1
+	      export NL_PARENT_ID=0
+	      export NL_PARENT_GRID_RATIO=1
+	      export NL_I_PARENT_START=${ISTR_CR}
+	      export NL_J_PARENT_START=${JSTR_CR}
+      fi
+#
+
 #
 # Clean directory
 #      let MEM=1
