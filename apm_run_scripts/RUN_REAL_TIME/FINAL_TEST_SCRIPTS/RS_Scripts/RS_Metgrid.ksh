@@ -6,7 +6,9 @@
       cd ${RUN_DIR}/${DATE}/metgrid
 #
       ln -fs ${GEOGRID_DIR}/geo_em.d${CR_DOMAIN}.nc ./.
-      ln -fs ${GEOGRID_DIR}/geo_em.d${FR_DOMAIN}.nc ./.
+      if [ -n "${FR_DOMAIN+x}" ]; then
+      	ln -fs ${GEOGRID_DIR}/geo_em.d${FR_DOMAIN}.nc ./.
+      fi
       ln -fs ../ungrib/FILE:* ./.
       cp ${WPS_DIR}/metgrid/METGRID.TBL.${METGRID_TABLE_TYPE} METGRID.TBL
       cp ${WPS_DIR}/metgrid.exe .
