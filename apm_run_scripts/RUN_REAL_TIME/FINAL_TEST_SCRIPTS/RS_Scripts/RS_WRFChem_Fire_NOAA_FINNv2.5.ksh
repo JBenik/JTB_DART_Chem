@@ -6,7 +6,7 @@ MAX_DOMAINS_NO_PADDING=${MAX_DOMAINS##+(0)}
       export FILE_CR=wrfinput_d${CR_DOMAIN}
       rm -rf ${FILE_CR}
       ln -sf ${REAL_DIR}/${FILE_CR}_${FILE_DATE} ${FILE_CR}   
-      if [[ ${MAX_DOMAINS_NO_PADDING} != 1 ]]; then
+      if [ -n "${FR_DOMAIN+x}" ]; then
       	export FILE_FR=wrfinput_d${FR_DOMAIN}
       	rm -rf ${FILE_FR}
       	ln -sf ${REAL_DIR}/${FILE_FR}_${FILE_DATE} ${FILE_FR}   
@@ -64,7 +64,7 @@ EOF
 #
 # TEST WHETHER OUTPUT EXISTS
          export FILE_CR=wrffirechemi_d${CR_DOMAIN}_${L_FILE_DATE}
-      	 if [[ ${MAX_DOMAINS_NO_PADDING} != 1 ]]; then
+	 if [ -n "${FR_DOMAIN+x}" ]; then
          	 export FILE_FR=wrffirechemi_d${FR_DOMAIN}_${L_FILE_DATE}
 		 if [[ ! -e ${FILE_CR} || (${MAX_DOMAINS_NO_PADDING} -eq 2 && ! -e ${FILE_FR}) ]]; then
 		    echo WRFFIRE FAILED

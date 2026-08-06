@@ -1,7 +1,6 @@
 #!/bin/ksh -aux
    cd ${RUN_DIR}/${DATE}/wrfchem_chemi
 #
-   MAX_DOMAINS_NO_PADDING=${MAX_DOMAINS##+(0)}
    export L_DATE=${DATE}00
    export LE_DATE=$(${BUILD_DIR}/da_advance_time.exe ${L_DATE} ${FCST_PERIOD} -f ccyymmddhhnn 2>/dev/null)
 #
@@ -17,9 +16,9 @@
       export FILE_PATH=${EXPERIMENT_WRFCHEMI_DIR}/${L_YYYY}/${L_MM}/${L_DD}
       cp ${FILE_PATH}/wrfchemi_d${CR_DOMAIN}_${L_YYYY}-${L_MM}-${L_DD}_${L_HH}:${L_MN}:${L_SS} ./wrfchemi_d${CR_DOMAIN}_${L_YYYY}-${L_MM}-${L_DD}_${L_HH}:${L_MN}:${L_SS}
       chmod 644 wrfchemi_d${CR_DOMAIN}_${L_YYYY}-${L_MM}-${L_DD}_${L_HH}:${L_MN}:${L_SS}
-      if [[ ${MAX_DOMAINS_NO_PADDING} == 2 ]]; then
-         cp ${FILE_PATH}/wrfchemi_d${FR_DOMAIN}_${L_YYYY}-${L_MM}-${L_DD}_${L_HH}:${L_MN}:${L_SS} ./.
-         chmod 644 wrfchemi_d${FR_DOMAIN}_${L_YYYY}-${L_MM}-${L_DD}_${L_HH}:${L_MN}:${L_SS}
-      fi 
+      if [ -n "${FR_DOMAIN+x}" ]; then
+      	cp ${FILE_PATH}/wrfchemi_d${FR_DOMAIN}_${L_YYYY}-${L_MM}-${L_DD}_${L_HH}:${L_MN}:${L_SS} ./.
+      	chmod 644 wrfchemi_d${FR_DOMAIN}_${L_YYYY}-${L_MM}-${L_DD}_${L_HH}:${L_MN}:${L_SS}
+      fi
       export L_DATE=$(${BUILD_DIR}/da_advance_time.exe ${L_DATE} 1 -f ccyymmddhhnn 2>/dev/null)
    done

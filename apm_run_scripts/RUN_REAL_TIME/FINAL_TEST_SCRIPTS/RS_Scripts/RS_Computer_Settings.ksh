@@ -2,7 +2,7 @@
 #
 # COMPUTER PARAMETERS:
    export PROJ_NUMBER=P93300612
-   export ACCOUNT=s2933
+   export ACCOUNT=s1007
 #
    export DEBUG_JOB_CLASS=debug
    export DEBUG_TIME_LIMIT=01:59:00

@@ -22,6 +22,7 @@
    export L_SS=$(echo $L_DATE | cut -c13-14)
    export L_FILE_DATE=${L_YY}-${L_MM}-${L_DD}_${L_HH}:${L_MN}:${L_SS}
 #
+   export L_WORK_DIR=${RUN_DIR}/${DATE}/wrfchem_chem_icbc
 # Remove files for regenerations
    rm -rf wrfbdy_d${CR_DOMAIN}_${L_YY}*
    rm -rf wrfinput_d${CR_DOMAIN}_${L_YY}*
@@ -30,12 +31,13 @@
    if [[ ! -e ${L_WORK_DIR}/met_em.d{CR_DOMAIN}.${L_FILE_DATE}.nc ]]; then
       cp ${METGRID_DIR}/met_em.d${CR_DOMAIN}.*.nc ./.
    fi
-#   if [[ ! -e ${L_WORK_DIR}/met_em.d{FR_DOMAIN}.${L_FILE_DATE}.nc ]]; then
-#      cp ${METGRID_DIR}/met_em.d${FR_DOMAIN}.*.nc ./.
-#   fi
+   if [ -n "${FR_DOMAIN+x}" ]; then
+	   if [[ ! -e ${L_WORK_DIR}/met_em.d{FR_DOMAIN:-}.${L_FILE_DATE}.nc ]]; then
+	      cp ${METGRID_DIR}/met_em.d${FR_DOMAIN:-}.*.nc ./.
+	   fi
+   fi
    cp ${PERT_CHEM_INPUT_DIR}/work/perturb_chem_icbc_CORR_RT_MA_MPI.exe ./perturb_chem_icbc.exe
    cp ${PERT_CHEM_INPUT_DIR}/work/mozbc.exe ./mozbc.exe
-
    export WRFINPEN=wrfinput_d${CR_DOMAIN}_${L_FILE_DATE}
    export WRFBDYEN=wrfbdy_d${CR_DOMAIN}_${L_FILE_DATE}
    export WRFINPUT_FLD_RW=wrfinput_d${CR_DOMAIN}
@@ -271,9 +273,11 @@ mv ${WRFBDYEN} ${WRFBDYEN}_parent
  mv ${WRFBDY_FLD_RW}_vari ${WRFBDYEN}_vari
 #
 # COMBINE WRFCHEM WITH WRF FR DOMAIN PARENT FILES
-#export WRFINPEN=wrfinput_d${FR_DOMAIN}_${YYYY}-${MM}-${DD}_${HH}:${L_MN}:${L_SS}
-#ncks -A ${REAL_DIR}/${WRFINPEN} ${WRFINPEN}
-#ncks -A ${EXPERIMENT_DUST_DIR}/EROD_d${FR_DOMAIN} ${WRFINPEN}
+if [ -n "${FR_DOMAIN+x}" ]; then
+	export WRFINPEN=wrfinput_d${FR_DOMAIN:-}_${YYYY}-${MM}-${DD}_${HH}:${L_MN}:${L_SS}
+	ncks -A ${REAL_DIR}/${WRFINPEN} ${WRFINPEN}
+	ncks -A ${EXPERIMENT_DUST_DIR}/EROD_d${FR_DOMAIN:-} ${WRFINPEN}
+fi
 #
 # LOOP THROUGH ALL MEMBERS IN THE ENSEMBLE
 let MEM=1
@@ -290,9 +294,11 @@ while [[ \${MEM} -le ${NUM_MEMBERS} ]]; do
    ncks -A ${WRFCHEM_MET_BC_DIR}/\${WRFBDYEN} \${WRFBDYEN}
 #
 # COMBINE WRFCHEM WITH WRF FR DOMAIN
-#   export WRFINPEN=wrfinput_d${FR_DOMAIN}_${YYYY}-${MM}-${DD}_${HH}:${L_MN}:${L_SS}.\${CMEM}
-#   ncks -A ${WRFCHEM_MET_IC_DIR}/\${WRFINPEN} \${WRFINPEN}
-#   ncks -A ${EXPERIMENT_DUST_DIR}/EROD_d${FR_DOMAIN} \${WRFINPEN}
+if [ -n "${FR_DOMAIN+x}" ]; then
+	export WRFINPEN=wrfinput_d${FR_DOMAIN:-}_${YYYY}-${MM}-${DD}_${HH}:${L_MN}:${L_SS}.\${CMEM}
+	ncks -A ${WRFCHEM_MET_IC_DIR}/\${WRFINPEN} \${WRFINPEN}
+	ncks -A ${EXPERIMENT_DUST_DIR}/EROD_d${FR_DOMAIN:-} \${WRFINPEN}
+fi
 #
    let MEM=\${MEM}+1
 done

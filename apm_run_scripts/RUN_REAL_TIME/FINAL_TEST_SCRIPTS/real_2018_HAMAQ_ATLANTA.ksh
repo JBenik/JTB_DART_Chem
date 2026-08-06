@@ -44,7 +44,7 @@ export EXPERIMENT_INPUT_OBS=NOAA
 export NL_CORRECTION_FILENAME='Historical_Bias_Corrections'
 
 export WRFCHEM_TEMPLATE_FILE=wrfinput_d01_2019-04-02_03:00:00.e001
-export NUM_MEMBERS=5
+export NUM_MEMBERS=2
 export CYCLE_PERIOD=3
 export FCST_PERIOD=3
 #
