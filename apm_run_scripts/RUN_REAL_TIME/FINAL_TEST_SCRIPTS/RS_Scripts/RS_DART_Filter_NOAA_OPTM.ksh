@@ -408,7 +408,7 @@ EOF
       TRANDOM=$$
       export JOBRND=${TRANDOM}_nco2
       export EXE_LINE="parallel -j 30 './{1} >& index_{1}.log'"
-      ${JOB_CONTROL_SCRIPTS_DIR}/job_script_nasa_GNU_PARALLEL.ksh ${JOBRND} ${GENERAL_JOB_CLASS} ${GENERAL_TIME_LIMIT} ${GENERAL_NODES} ${GENERAL_TASKS} "${EXE_LINE}" PARALLEL ${ACCOUNT} ${GENERAL_MODEL}
+      ${JOB_CONTROL_SCRIPTS_DIR}/job_script_nasa_GNU_PARALLEL.ksh ${JOBRND} ${GENERAL_JOB_CLASS} ${GENERAL_TIME_LIMIT} ${GENERAL_NODES} ${GENERAL_TASKS} "${EXE_LINE}" SERIAL ${ACCOUNT} ${GENERAL_MODEL} ${NUM_MEMBERS}
       qsub -Wblock=true job.bsh > index_nco2 2>&1
 #
       rm -rf jobx_e0*.ksh

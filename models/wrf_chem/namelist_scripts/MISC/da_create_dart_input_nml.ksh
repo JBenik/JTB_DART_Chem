@@ -15,7 +15,7 @@ rm -f input.nml
 touch input.nml
 cat > input.nml << EOF
 &obs_sequence_tool_nml
-   num_input_files           = ${NL_NUM_INPUT_FILES}
+!   num_input_files           = ${NL_NUM_INPUT_FILES}
    filename_seq              = ${NL_FILENAME_SEQ},
    filename_out              = ${NL_FILENAME_OUT},
    first_obs_days            = ${NL_FIRST_OBS_DAYS},

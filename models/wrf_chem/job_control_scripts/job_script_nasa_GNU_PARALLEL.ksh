@@ -28,9 +28,24 @@ export EXE_LINE="$6"
 export TYPE=$7
 export ACCOUNT=$8
 export MODEL=$9
-let NPROC=${NODES}*${TASKS}
+export NUM_MEMS=${10}
 #
-if [[ ${TYPE} == PARALLEL ]]; then
+#echo JOBID $JOBID
+#echo CLASS $CLASS
+#echo TIME_LIMIT $TIME_LIMIT
+#echo NODES $NODES
+#echo TASKS $TASKS
+#echo EXE_LINE $EXE_LINE
+#echo TYPE $TYPE
+#echo ACCOUNT $ACCOUNT
+#echo MODEL $MODEL
+#echo NUM_MEMS $NUM_MEMS
+#
+let NUM_NODES=${NODES}*${NUM_MEMS}
+let NUM_PROCS=${NODES}*${TASKS}
+#
+if [[ ${TYPE} == SERIAL ]]; then
+   echo APM: IN PARALLEL
    rm -rf job.bsh
    touch job.bsh
    cat << EOF > job.bsh
@@ -48,9 +63,23 @@ export MPI_DSM_DISTRIBUTE=0
 ${EXE_LINE} ::: ${JOB_LIST}
 EOF
 #
-elif [[ ${TYPE} == SERIAL ]]; then
-   echo "APM ERROR: GNU PARALLEL HAS NO SERIAL OPTION"
-   echo "APM ERROR: ABORT JOB SCRIPT"
-   exit
+elif [[ ${TYPE} == PARALLEL ]]; then
+   echo APM: IN PARALLEL
+   rm -rf job.bsh
+   touch job.bsh
+   cat << EOF > job.bsh
+#!/bin/bash
+#PBS -W group_list=${ACCOUNT}
+#PBS -N ${JOBID}
+#PBS -q ${CLASS}
+#PBS -l walltime=${TIME_LIMIT}
+#PBS -j oe
+#PBS -l select=${NUM_NODES}:ncpus=${TASKS}:mpiprocs=${TASKS}:model=${MODEL}
+#
+module load mpi-hpe/mpt
+cd \${PBS_O_WORKDIR}
+split -l ${NUM_PROCS} -d -a 2 \$PBS_NODEFILE node_chunk_
+${EXE_LINE} ::: ${JOB_LIST}
+EOF
+#
 fi
-

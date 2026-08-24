@@ -8,8 +8,8 @@
    if [[ ${MAX_DOMAINS} -eq 02 ]]; then
    	export FR_DOMAIN=02
    fi
-   export NNXP_CR=399
-   export NNYP_CR=399
+   export NNXP_CR=300
+   export NNYP_CR=300
    export NNZP_CR=50
    export NNXP_FR=100
    export NNYP_FR=100
@@ -35,9 +35,9 @@
    export NFIRECHEMI_EMISS=19
    export NBIOCHEMI_EMISS=1
    export ISTR_CR=1
-   export ISTR_FR=176
+   export ISTR_FR=126
    export JSTR_CR=1
-   export JSTR_FR=176
+   export JSTR_FR=126
    export DX_CR=6000
    export DX_FR=3000
    (( LBC_END=2*${FCST_PERIOD} ))

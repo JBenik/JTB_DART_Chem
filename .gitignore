@@ -381,3 +381,4 @@ apm_run_scripts/RUN_LOCALIZE_OBS_SEQ/*
 apm_run_scripts/RUN_FINN_FIRE/*
 observations/obs_converters/*
 models/*
+guide/*

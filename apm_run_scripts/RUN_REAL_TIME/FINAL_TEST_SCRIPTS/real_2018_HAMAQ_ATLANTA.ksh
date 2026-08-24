@@ -38,13 +38,14 @@ export EXPERIMENT_DIR=${SCRATCH_DIR}
 export EXPERIMENT_DATA_DIR=${INPUT_DATA_DIR}
 #
 export RUN_DIR=${EXPERIMENT_DIR}/OUTPUT_2018_HAMAQ_ATLANTA
+#export RUN_INPUT_DIR=/nobackupp28/amizzi/OUTPUT_DATA/INPUT_2018_HAMAQ_ATLANTA
 export RUN_INPUT_DIR=${EXPERIMENT_DIR}/INPUT_2018_HAMAQ_ATLANTA
 export EXPERIMENT_INPUT_OBS=NOAA
 #
 export NL_CORRECTION_FILENAME='Historical_Bias_Corrections'
 
 export WRFCHEM_TEMPLATE_FILE=wrfinput_d01_2019-04-02_03:00:00.e001
-export NUM_MEMBERS=2
+export NUM_MEMBERS=10
 export CYCLE_PERIOD=3
 export FCST_PERIOD=3
 #
@@ -55,10 +56,10 @@ export FIRST_DART_INFLATE_DATE=2018040203
 export FIRST_EMISS_INV_DATE=2018040203
 #
 # START CYCLE DATE-TIME:
-export CYCLE_STR_DATE=2018040200
+export CYCLE_STR_DATE=2018040206
 #
 # END CYCLE DATE-TIME:
-export CYCLE_END_DATE=2018040203
+export CYCLE_END_DATE=2018040300
 #
 # For emissions estimation
 export ADD_EMISS=true
@@ -81,21 +82,21 @@ export NUM_WRFFIRECHEMI_DARTVARS=4
 #
 # SELECT OBSERVATION OPTIONS:
 export RUN_INPUT_OBS=false
-export RUN_MOPITT_V9_CO_PROFILE_OBS=true            # (done)  TRACER I
-export RUN_OMI_NO2_DOMINO_TROP_COL_OBS=true         # (done)  TRACER I
-export RUN_OMI_SO2_PBL_COL_OBS=true                 # (done)  TRACER I
-export RUN_TES_CO_PROFILE_OBS=true                  # (done)  TRACER I
-export RUN_GOME2A_NO2_TROP_COL_OBS=true             # (done)  TRACER I
-export RUN_SCIAM_NO2_TROP_COL_OBS=true              # (done)  TRACER I
-export RUN_OMI_O3_PROFILE_OBS=true                  # (done)  TRACER I
-export RUN_TES_O3_PROFILE_OBS=true                  # (done)  TRACER I
-export RUN_MLS_O3_PROFILE_OBS=true                  # (done)  TRACER I
-export RUN_MLS_HNO3_PROFILE_OBS=true                # (done)  TRACER I
-export RUN_AIRNOW_CO_OBS=true                       # (done)  TRACER I
-export RUN_AIRNOW_O3_OBS=true                       # (done)  TRACER I
-export RUN_AIRNOW_NO2_OBS=true                      # (done)  TRACER I
-export RUN_AIRNOW_SO2_OBS=true                      # (done)  TRACER I
-export RUN_MET_OBS=true                             # (done)  TRACER I
+export RUN_MOPITT_V9_CO_PROFILE_OBS=false            # (done)  TRACER I
+export RUN_OMI_NO2_DOMINO_TROP_COL_OBS=false         # (done)  TRACER I
+export RUN_OMI_SO2_PBL_COL_OBS=false                 # (done)  TRACER I
+export RUN_TES_CO_PROFILE_OBS=false                  # (done)  TRACER I
+export RUN_GOME2A_NO2_TROP_COL_OBS=false             # (done)  TRACER I
+export RUN_SCIAM_NO2_TROP_COL_OBS=false              # (done)  TRACER I
+export RUN_OMI_O3_PROFILE_OBS=false                  # (done)  TRACER I
+export RUN_TES_O3_PROFILE_OBS=false                  # (done)  TRACER I
+export RUN_MLS_O3_PROFILE_OBS=false                  # (done)  TRACER I
+export RUN_MLS_HNO3_PROFILE_OBS=false                # (done)  TRACER I
+export RUN_AIRNOW_CO_OBS=false                       # (done)  TRACER I
+export RUN_AIRNOW_O3_OBS=false                       # (done)  TRACER I
+export RUN_AIRNOW_NO2_OBS=false                      # (done)  TRACER I
+export RUN_AIRNOW_SO2_OBS=false                      # (done)  TRACER I
+export RUN_MET_OBS=true                              # (done)  TRACER I
 #
 export RUN_MODIS_AOD_TOTAL_COL_OBS=false            # (done)  TRACER I - leave false
 export RUN_GOME2B_NO2_TROP_COL_OBS=false            # (done)  TRACER I - leave false
@@ -185,8 +186,9 @@ while [[ ${CYCLE_DATE} -le ${CYCLE_END_DATE} ]]; do
 #
 # Run WRF-Chem for failed forecasts (will not work with adaptive time step)
    export RUN_SPECIAL_FORECAST=false
-   export NUM_SPECIAL_FORECAST=0
    export SPECIAL_FORECAST_FAC=1.
+   export SPECIAL_FORECAST_FAC=0.75
+   export NUM_SPECIAL_FORECAST=0
    export SPECIAL_FORECAST_MEM[1]=1
    export SPECIAL_FORECAST_MEM[2]=2
    export SPECIAL_FORECAST_MEM[3]=3
@@ -200,6 +202,8 @@ while [[ ${CYCLE_DATE} -le ${CYCLE_END_DATE} ]]; do
 #
    if [[ ${DATE} -eq ${CYCLE_STR_DATE}  ]]; then
       export RUN_SPECIAL_FORECAST=false
+      export SPECIAL_FORECAST_FAC=1.
+      export SPECIAL_FORECAST_FAC=0.75
       export NUM_SPECIAL_FORECAST=0
       export SPECIAL_FORECAST_MEM[1]=1
       export SPECIAL_FORECAST_MEM[2]=2
@@ -321,9 +325,9 @@ while [[ ${CYCLE_DATE} -le ${CYCLE_END_DATE} ]]; do
    source ${RS_SCRIPTS_DIR}/RS_Chemistry_Pert_Params.ksh > index_RS_Chemistry_Pert_Params_${DATE} 2>&1
 #
 # NOAAS  
-   rm -rf index_RS_Forecast_Time_Domain_Params_NOAA_${DATE}
+   rm -rf index_RS_Forecast_Time_Domain_Params_HAHAQ_ATLANTA_${DATE}
    source ${RS_SCRIPTS_DIR}/RS_Forecast_Time_Domain_Params_HAMAQ_ATLANTA.ksh > index_RS_Forecast_Time_Domain_Params_HAMAQ_ATLANTA_${DATE} 2>&1
-   rm -rf index_RS_WRFChem_Namelists_NOAA_${DATE}
+   rm -rf index_RS_WRFChem_Namelists_HAMAQ_ATLANTA_${DATE}
    source ${RS_SCRIPTS_DIR}/RS_WRFChem_Namelists_HAMAQ_ATLANTA.ksh > index_RS_WRFChem_Namelists_HAMAQ_ATLANTA_${DATE} 2>&1
 #
    rm -rf index_RS_Forward_Operator_Params_${DATE}
@@ -354,14 +358,14 @@ while [[ ${CYCLE_DATE} -le ${CYCLE_END_DATE} ]]; do
 #
 #########################################################################
 #
-   export LOCALIZATION_DIR=/nobackupp28/amizzi/OUTPUT_DATA/STATIC_DATA/localization   
+   export LOCALIZATION_DIR=/nobackupp28/jbenik/OUTPUT_DATA/STATIC_DATA/localization   
    export NL_EPSSM=0.1
    export NL_DAMPCOEF=0.2,0.2
    export NL_DAMP_OPT=3
    export NL_SMOOTH_OPTION=0
    export NL_TIME_STEP=10
    export NNL_TIME_STEP=10
-   export NL_TIME_STEP_SOUND=4
+   export NL_TIME_STEP_SOUND=2
 #
    export GENERAL_JOB_CLASS=normal
    export GENERAL_TIME_LIMIT=00:15:00
@@ -632,6 +636,7 @@ while [[ ${CYCLE_DATE} -le ${CYCLE_END_DATE} ]]; do
          cd ${RUN_DIR}/${DATE}/wrfchem_cycle_cr
       fi
       source ${RS_SCRIPTS_DIR}/RS_WRFChem_Cycle_CR_NOAA.ksh > index_rs.html 2>&1
+#      source ${RS_SCRIPTS_DIR}/RS_WRFChem_Cycle_CR_NOAA_OPTM.ksh > index_rs.html 2>&1
    fi
 #
 #########################################################################
