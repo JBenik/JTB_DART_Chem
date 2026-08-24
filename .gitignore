@@ -370,3 +370,14 @@ models/wrf_chem/work/replace_wrf_fields
 models/wrf_chem/work/select
 models/wrf_chem/work/update_wrf_bc
 models/wrf_chem/work/wrf_dart_obs_preprocess
+
+# TRACER_I_ Directories
+TRACER_I_CLEANUP/*
+TRACER_I_POSTPROCESS/*
+
+# Files in apm_run_scripts
+apm_run_scripts/RUN_MEGAN_BIO/*
+apm_run_scripts/RUN_LOCALIZE_OBS_SEQ/*
+apm_run_scripts/RUN_FINN_FIRE/*
+observations/obs_converters/*
+models/*
