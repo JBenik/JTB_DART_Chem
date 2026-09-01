@@ -306,10 +306,10 @@ observations/obs_converters/ATMOS_CHEM/MLS_O3/*
 !observations/obs_converters/ATMOS_CHEM/MLS_O3/quickbuild.sh
 
 # MODIS & MOPITT
-!observations/obs_converters/ATMOS_CHEM/MODIS_AOD/*
-!observations/obs_converters/ATMOS_CHEM/MODIS_AOD/quickbuild.sh
-!observations/obs_converters/ATMOS_CHEM/MOPITT_CO/*
-!observations/obs_converters/ATMOS_CHEM/MOPITT_CO/quickbuild.sh
+#observations/obs_converters/ATMOS_CHEM/MODIS_AOD/*
+#observations/obs_converters/ATMOS_CHEM/MODIS_AOD/quickbuild.sh
+#observations/obs_converters/ATMOS_CHEM/MOPITT_CO/*
+#observations/obs_converters/ATMOS_CHEM/MOPITT_CO/quickbuild.sh
 
 # OMI
 observations/obs_converters/ATMOS_CHEM/OMI_HCHO/*
