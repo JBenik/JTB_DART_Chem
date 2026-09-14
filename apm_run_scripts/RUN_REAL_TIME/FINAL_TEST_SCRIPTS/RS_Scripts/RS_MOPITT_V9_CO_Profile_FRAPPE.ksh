@@ -66,7 +66,7 @@ cat << EOF > jobx.ksh
       cp ${DART_DIR}/observations/obs_converters/ATMOS_CHEM/MOPITT_CO/native_to_ascii/work/run_mopitt_v9_co_profile_extract.sh ./.
 #
       export HOME=/tmp
-      cp /home1/amizzi/.Xauthority /tmp/.
+      cp /home5/jbenik/.Xauthority /tmp/.
 #      mcc -m mopitt_v9_co_profile_extract.m -o mopitt_v9_co_profile_extract
      ./run_mopitt_v9_co_profile_extract.sh ${MATLAB} \${INFILE} \${OUTFILE} \${MOPITT_FILE_PRE} \${BIN_BEG_YY} \${BIN_BEG_MM} \${BIN_BEG_DD} \${BIN_BEG_HH} \${BIN_BEG_MN} \${BIN_BEG_SS} \${BIN_END_YY} \${BIN_END_MM} \${BIN_END_DD} \${BIN_END_HH} \${BIN_END_MN} \${BIN_END_SS} \${NL_PATH_MODEL} \${NL_FILE_MODEL} \${NL_NX_MODEL} \${NL_NY_MODEL} > index_mat1.html 2>&1
 #
@@ -108,7 +108,7 @@ cat << EOF > jobx.ksh
          cp ${DART_DIR}/observations/obs_converters/ATMOS_CHEM/MOPITT_CO/native_to_ascii/work/run_mopitt_v9_co_profile_extract.sh ./.
 #
          export HOME=/tmp
-         cp /home1/amizzi/.Xauthority /tmp/.
+         cp /home5/jbenik/.Xauthority /tmp/.
 #         mcc -m mopitt_v9_co_profile_extract.m -o mopitt_v9_co_profile_extract
         ./run_mopitt_v9_co_profile_extract.sh ${MATLAB} \${INFILE} \${OUTFILE} \${MOPITT_FILE_PRE} \${BIN_BEG_YY} \${BIN_BEG_MM} \${BIN_BEG_DD} \${BIN_BEG_HH} \${BIN_BEG_MN} \${BIN_BEG_SS} \${BIN_END_YY} \${BIN_END_MM} \${BIN_END_DD} \${BIN_END_HH} \${BIN_END_MN} \${BIN_END_SS} \${NL_PATH_MODEL} \${NL_FILE_MODEL} \${NL_NX_MODEL} \${NL_NY_MODEL} > index_mat2.html 2>&1
       fi   

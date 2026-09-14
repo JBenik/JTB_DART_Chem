@@ -108,7 +108,7 @@
       export JOBRND=${TRANDOM}_wrfda_cr
       export EXE_LINE="parallel -j 30 'cd wrfda_cr_{1}; ./da_wrfvar.exe >& index.log'"
       ${JOB_CONTROL_SCRIPTS_DIR}/job_script_nasa_GNU_PARALLEL.ksh ${JOBRND} ${GENERAL_JOB_CLASS} ${GENERAL_\
-TIME_LIMIT} 1 90 "${EXE_LINE}" PARALLEL ${ACCOUNT} ${GENERAL_MODEL}
+TIME_LIMIT} 1 90 "${EXE_LINE}" SERIAL ${ACCOUNT} ${GENERAL_MODEL} ${NUM_MEMBERS}
       qsub -Wblock=true job.bsh > index_wrfvar 2>&1
 #
 # LOOP THROUGH ALL BDY TENDENCY TIMES
