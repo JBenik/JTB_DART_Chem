@@ -16,7 +16,7 @@ abort() {
 }
 
 # Checking if the directory exists, if not, exit
-cd "${RUN_DIR}/${DATE}/wrfchem_fire" || abort "ERROR: Could not find or access ${RUN_DIR}/${DATE}/fire directory."
+cd "${RUN_DIR}/${DATE}/wrfchem_fire" || abort "ERROR: Could not find or access ${RUN_DIR}/${DATE}/wrfchem_fire directory."
 
 # Checking for index files in fire
 if [[ ! -e index_rs.html ]]; then

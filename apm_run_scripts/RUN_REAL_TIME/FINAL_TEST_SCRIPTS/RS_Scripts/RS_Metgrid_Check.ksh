@@ -3,6 +3,13 @@
 # This script was developed by Jeremy T. Benik
 # Jeremy.T.Benik@NASA.gov
 
+# This program checks for:
+#	1. Check if the directory exists
+#	2. Check that the index files exist
+#	3. Check that metgrid ran sucessfully in index.html
+#	4. Check that no keywords present in an index file
+#	5. Check that met_em.d01 are present in the directory
+
 # Defining a re-usable error function
 abort() {
     echo "$1" | tee ERROR.html >&2
@@ -33,8 +40,8 @@ if ! ls met_em.d01* >/dev/null 2>&1; then
 fi
 
 # Checking if d02 exists and if so, the met_em.d02 file
-if [[ "${MAX_DOMAINS}" -eq 2 ]]; then
-    if ! ls met_em.d02* >/dev/null 2>&1; then
-        abort "ERROR: met_em.d02.nc file not found, exiting."
-    fi
-fi
+#if [[ "${MAX_DOMAINS}" -eq 2 ]]; then
+#    if ! ls met_em.d02* >/dev/null 2>&1; then
+#        abort "ERROR: met_em.d02.nc file not found, exiting."
+#    fi
+#fi

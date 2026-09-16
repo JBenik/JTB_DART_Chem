@@ -3,6 +3,15 @@
 # This script was developed by Jeremy T. Benik
 # Jeremy.T.Benik@NASA.gov
 
+# This program checks for:
+#	1. Check if the directory exists
+#	2. Check that the index files exist
+#	3. Check that ungrib ran sucessfully in ungrib.log
+#	4. Check that ungrib ran sucessfully in index.html
+#	5. Check that FILE* are present in the directory
+#	6. Check that GRIBFILE are present in the directory
+
+
 # Defining a re-usable error function
 abort() {
     echo "$1" | tee ERROR.html >&2

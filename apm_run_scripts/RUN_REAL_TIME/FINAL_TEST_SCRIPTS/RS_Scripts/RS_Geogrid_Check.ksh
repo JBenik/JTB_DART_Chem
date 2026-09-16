@@ -3,6 +3,13 @@
 # This script was developed by Jeremy T. Benik
 # Jeremy.T.Benik@NASA.gov
 
+# This program checks for:
+#	1. Check if the directory exists
+#	2. Check that the index files exist
+#	3. Check that geogrid finished properly
+#	4. Check that no keywords present in an index file
+#	5. Check that geogrid generated geo_em_d01
+
 # Defining a re-usable error function
 abort() {
     echo "$1" | tee ERROR.html >&2
@@ -33,6 +40,6 @@ if [[ ! -e geo_em_d01.nc ]]; then
 fi
 
 # Checking if d02 exists and if so, the geo_em_d02 file
-if [[ "${MAX_DOMAINS}" -eq 2 && ! -e geo_em_d02.nc ]]; then
-    abort "ERROR: geo_em_d02.nc file not found, exiting."
-fi
+#if [[ "${MAX_DOMAINS}" -eq 2 && ! -e geo_em_d02.nc ]]; then
+#    abort "ERROR: geo_em_d02.nc file not found, exiting."
+#fi

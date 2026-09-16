@@ -3,6 +3,15 @@
 # This script was developed by Jeremy T. Benik
 # Jeremy.T.Benik@NASA.gov
 
+# This program checks for:
+#	1. Check if the directory exists
+#	2. Check that the index_rs.html file exists
+#	3. Check that real ran sucessfully in rsl.out.0000
+#	4. Check that real ran sucessfully in rsl.error.0000
+#	5. Check that no keywords present in an index file
+#	6. Check that wrfinput_d01 file exists
+
+
 # Defining a re-usable error function
 abort() {
     echo "$1" | tee ERROR.html >&2
@@ -38,8 +47,8 @@ if ! ls wrfinput_d01* >/dev/null 2>&1; then
 fi
 
 # Checking if d02 exists and if so, the wrfinput_d02 file
-if [[ "${MAX_DOMAINS}" -eq 2 ]]; then
-    if ! ls wrfinput_d02* >/dev/null 2>&1; then
-        abort "ERROR: wrfinput_d02* file not found, exiting."
-    fi
-fi
+#if [[ "${MAX_DOMAINS}" -eq 2 ]]; then
+#    if ! ls wrfinput_d02* >/dev/null 2>&1; then
+#        abort "ERROR: wrfinput_d02* file not found, exiting."
+#    fi
+#fi

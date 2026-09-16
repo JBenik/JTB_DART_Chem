@@ -16,7 +16,7 @@ abort() {
 }
 
 # Checking if the directory exists, if not, exit
-cd "${RUN_DIR}/${DATE}/wrfchem_bio" || abort "ERROR: Could not find or access ${RUN_DIR}/${DATE}/bio directory."
+cd "${RUN_DIR}/${DATE}/wrfchem_bio" || abort "ERROR: Could not find or access ${RUN_DIR}/${DATE}/wrfchem_bio directory."
 
 # Checking for index files in bio
 if [[ ! -e index_rs.html ]]; then

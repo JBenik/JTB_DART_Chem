@@ -18,9 +18,9 @@ abort() {
 }
 
 # Checking if the directory exists, if not, exit
-cd "${RUN_DIR}/${DATE}/wrfchem_met_bc" || abort "ERROR: Could not find or access ${RUN_DIR}/${DATE}/real directory."
+cd "${RUN_DIR}/${DATE}/wrfchem_met_bc" || abort "ERROR: Could not find or access ${RUN_DIR}/${DATE}/wrfchem_met_bc directory."
 
-# Checking for index files in real
+# Checking for index files in wrfchem_met_bc
 if [[ ! -e index_rs.html ]]; then
     abort "ERROR: index_rs.html file not found, exiting."
 fi
